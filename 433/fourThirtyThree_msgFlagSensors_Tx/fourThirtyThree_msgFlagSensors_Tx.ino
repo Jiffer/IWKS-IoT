@@ -11,22 +11,25 @@
 // Include RadioHead Amplitude Shift Keying Library
 #include <RH_ASK.h>
 
-// Define Constants
+// Global Variables
 
+// Analog and digital input Pins
+int aPin = A0;
+int dPin = 21;
 
-// Define Variables
-
-int analogIn;    // stores input values
+// stores input values
+int analogIn;    
 int digitalIn;
 
-int aPin = A0;
-int dPin = 2;
-
-// Define output strings
-
+// strings to store digital and analog 
+// values for "message construction"
 String str_analogIn = "0000";
 String str_digitalIn = "0";
-String str_out;
+
+// Hard coded messages
+char * message1 = "msg1";
+char * message2 = "msg2";
+String constructedMessage;
 
 // Create Amplitude Shift Keying Object
 RH_ASK rf_driver;
@@ -46,9 +49,18 @@ void setup() {
 
 void loop()
 {
-
+  // Send message1 - hard message coded above
+  rf_driver.send((uint8_t *)message1, strlen(message1));
+  rf_driver.waitPacketSent();
+  delay(500);
+  
+  // Send message2 - hard message coded above
+  rf_driver.send((uint8_t *)message2, strlen(message2));
+  rf_driver.waitPacketSent();
   delay(500);
 
+  // read the analog and digital pins. 
+  // store the values and construct into a message
   analogIn = analogRead(aPin);  // Get analog value
   digitalIn = digitalRead(dPin);  // Get digital value
 
@@ -69,10 +81,10 @@ void loop()
   str_digitalIn = String(digitalIn);
   
   // Combine analog and digital sensors into one string (payload)
-  str_out = "msg" + str_analogIn + "," + str_digitalIn;
+  constructedMessage = "msg3" + str_analogIn + "," + str_digitalIn;
 
-  // Compose output character
-  const char *msg = str_out.c_str();
+  // Compose output char array
+  const char *msg = constructedMessage.c_str();
   Serial.print("sending message: ");
   Serial.println(msg);
   Serial.print("message length: ");
@@ -80,5 +92,6 @@ void loop()
 
   rf_driver.send((uint8_t *)msg, strlen(msg));
   rf_driver.waitPacketSent();
+  delay(500);
 
 }

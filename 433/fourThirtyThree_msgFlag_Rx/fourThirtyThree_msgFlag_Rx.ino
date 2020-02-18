@@ -58,31 +58,5 @@ void loop()
     if (str_out.substring(0, 4) == "msg2") {
       Serial.println("got msg2");
     }
-
-    // compare the first three characters to "msg"
-    if (str_out.substring(0, 4) == "msg3") {
-      Serial.print("got a sensor msg3: ");
-      Serial.println(str_out.substring(5, buflen));
-
-      // If it matches then parse the two values:
-
-      // Starting after "msg" (at the 4th character)
-      // look for a comma "," and split it into two
-      for (int i = 4; i < str_out.length(); i++) {
-        if (str_out.substring(i, i + 1) == ",") {
-          // starting 4 characters in, capture the values
-          // before and after the ","
-          str_analogVal = str_out.substring(4, i);
-          str_digitalVal = str_out.substring(i + 1);
-          break;
-        }
-      }
-
-      // Print parsed values to Serial Monitor
-      Serial.print("analog: ");
-      Serial.print(str_analogVal.toInt());
-      Serial.print("  - digital: ");
-      Serial.println(str_digitalVal.toInt());
-    }
   }
 }
