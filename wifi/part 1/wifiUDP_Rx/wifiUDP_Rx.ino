@@ -16,7 +16,7 @@
 
 // WiFi variables
 const char *ssid = "Inworks-IoT2";
-const char *password = "makeItMatter";
+const char *password = "MakeItMatter";
 
 boolean wifiConnected = false;
 

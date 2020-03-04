@@ -9,7 +9,7 @@
 
 /* WiFi access point settings. Update them as needed */
 const char *ssid = "Inworks-IoT2";
-const char *password = "makeItMatter";
+const char *password = "MakeItMatter";
 
 // Define a web server at port 800 for HTTP
 // NOTE: if 80 is used your web browser 
