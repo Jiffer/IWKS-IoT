@@ -32,7 +32,7 @@ boolean udpConnected = false;
 char packetBuffer[UDP_TX_PACKET_MAX_SIZE]; //buffer to hold incoming packet,
 
 // output pins
-// int ledPin = 0;
+// int ledPin = 5;
 
 void setup()
 {
@@ -53,7 +53,7 @@ void setup()
     Serial.println(WiFi.localIP());
 
     // initialize output pins to control the outputs
-    pinMode(ledPin, OUTPUT);
+//    pinMode(ledPin, OUTPUT);
   }
 
   udpConnected = connectUDP();
