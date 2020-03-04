@@ -5,8 +5,8 @@
 #endif
 
 /* WiFi access point settings. Update them as needed */
-const char *ssid = "networkName";
-const char *password = "password";
+const char *ssid = "Inworks-IoT2";
+const char *password = "MakeItMatter";
 
 // web page to connect to and print to Serial:
 const char* host = "www.example.com";
