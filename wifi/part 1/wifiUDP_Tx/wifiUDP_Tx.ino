@@ -40,12 +40,8 @@ int beat = 0;
 unsigned long lastSend = 0;
 int interval = 2000; // every 2 seconds
 
-// list of IP addresses to send to:
-IPAddress remoteList[nListeners] =
-{
-  IPAddress(10, 0, 0, 101),
-  IPAddress(10, 0, 0, 102), // only need one here
-};
+// IP addresses to send to:
+IPAddress remoteIPAddress =  IPAddress(10, 0, 0, 101);
 
 // UDP variables
 WiFiUDP UDP;
@@ -94,7 +90,7 @@ void loop() {
       if (buttonState == LOW && buttonState != lastButtonState) {
         // when button is pressed, send a message to the first IP address onlye:
         Serial.println("button pressed, sending message");
-        UDP.beginPacket(remoteList[0], localPort);
+        UDP.beginPacket(remoteIPAddress, localPort);
         UDP.printf(msgBuffer);
         int success = UDP.endPacket();
       }
@@ -120,7 +116,7 @@ void loop() {
 
         // broadcast this value to all the IP Addresses in the list:
         for (int i = 0; i < nListeners; i++) {
-          UDP.beginPacket(remoteList[i], localPort);
+          UDP.beginPacket(remoteIPAddress, localPort);
           UDP.write(message, sizeof(message));
           int success = UDP.endPacket();
         }
