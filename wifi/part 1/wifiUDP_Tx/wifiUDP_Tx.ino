@@ -66,8 +66,10 @@ void setup() {
   if (wifiConnected) {
     udpConnected = connectUDP();
     if (udpConnected) {
+      Serial.print("wifiUDP_Tx, Connected to: ");
+      Serial.println(ssid);
+      
       // initialize pins
-
       pinMode(buttonPin, INPUT_PULLUP);
     }
   }
