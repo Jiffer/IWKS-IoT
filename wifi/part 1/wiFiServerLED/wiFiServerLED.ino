@@ -8,8 +8,8 @@
 #include <WebServer.h>
 
 /* WiFi access point settings. Update them as needed */
-const char *ssid = "theHarrimans";
-const char *password = "andSadie2";
+const char *ssid = "things";
+const char *password = "connected";
 
 // Define a web server at port 800 for HTTP
 // NOTE: if 80 is used your web browser 
