@@ -17,7 +17,7 @@
 int button = 4;
 int led = 5;
 
-RF24 radio(0, 2); // CE, CSN
+RF24 radio(0,2); // CE, CSN
 const byte addresses[6] = {"00001"};
 boolean buttonState = 0;
 
@@ -29,7 +29,7 @@ void setup() {
   radio.openReadingPipe(1, addresses); 
     // power levels: RF24_PA_MIN, RF24_PA_LOW, RF24_PA_HIGH and RF24_PA_MAX
   radio.setPALevel(RF24_PA_HIGH);
-  radio.setChannel(2);  // number between 0-124
+  radio.setChannel(100);  // number between 0-124
   radio.startListening();
 
   Serial.begin(9600);

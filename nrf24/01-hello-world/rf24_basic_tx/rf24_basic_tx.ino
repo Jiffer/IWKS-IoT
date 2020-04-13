@@ -23,7 +23,7 @@ void setup() {
   radio.begin();
   radio.openWritingPipe(address);
   radio.setPALevel(RF24_PA_HIGH);
-  radio.setChannel(2);
+  radio.setChannel(100);
   // this side will only transmit
   radio.stopListening();
 }

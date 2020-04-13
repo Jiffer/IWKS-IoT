@@ -8,8 +8,8 @@
 #include <WebServer.h>
 
 /* WiFi access point settings. Update them as needed */
-const char *ssid = "Inworks-IoT2";
-const char *password = "MakeItMatter";
+const char *ssid = "theHarrimans";
+const char *password = "andSadie2";
 
 // Define a web server at port 800 for HTTP
 // NOTE: if 80 is used your web browser 
@@ -92,7 +92,7 @@ void handleRoot() {
   int hr = min / 60;
   
   // between 0:255
-  int red = 200;  // map(analogRead(A0), 0, 4095, 0, 255);
+  int red = map(analogRead(A0), 0, 4095, 0, 255);
   int green = 200;
   int blue = 200;
   // calculate background color
@@ -112,7 +112,7 @@ void handleRoot() {
     <title>ESP8266 WiFi Network</title>\
     <style>\
       body { background-color: %0x%; font-family: Arial, Helvetica, Sans-Serif; font-size: 1.5em; Color: #000000; }\
-      h1 { Color: #554422; }\
+      h1 { Color: #FFF000; }\
     </style>\
   </head>\
   <body>\
