@@ -3,8 +3,8 @@
 #include <ArduinoJson.h>
 
 // WiFi Parameters
-const char* ssid = "theHarrimans";
-const char* password = "andSadie2";
+const char* ssid = "SSID";
+const char* password = "PWD";
 
 void setup() {
   Serial.begin(115200);

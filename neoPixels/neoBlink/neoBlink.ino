@@ -16,7 +16,7 @@
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 // blink Rate
-int blinkRate = 4000;
+int blinkRate = 1000;
 
 void setup() {
   // begin serial communications
@@ -31,10 +31,14 @@ void loop() {
   // For a set of NeoPixels the first NeoPixel is 0, second is 1, all the way up to the count of pixels minus one.
   for (int i = 0; i < NUMPIXELS; i++) {
     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(100, 100, 100));
+    pixels.setPixelColor(i, pixels.Color(250, 193, 48));
+    
+    // This sends the updated pixel color to the hardware.
+    pixels.show(); // nothing happens until this is called
+
+    delay(20);
   }
-  // This sends the updated pixel color to the hardware.
-  pixels.show(); // nothing happens until this is called
+
 
   // pause for a moment
   delay(blinkRate);
@@ -42,10 +46,11 @@ void loop() {
   // turn off:
   for (int i = 0; i < NUMPIXELS; i++) {
     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(0, 0, 0)); // Moderately bright green color.
+    pixels.setPixelColor(i, pixels.Color(0, 0, 0));
 
   }
   pixels.show(); // This sends the updated pixel color to the hardware.
+
   // pause for a moment
   delay(blinkRate);
 }
